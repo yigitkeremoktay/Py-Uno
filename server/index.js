@@ -47,8 +47,11 @@ io.on("connection", (socket) => {
   		remainingAction = "plusfour"
   	}
   	if(card.cardType == "reverse"){
-  		remainingAction = "reverse"
-  	}
+      remainingAction = "reverse"
+    }
+    if(card.cardType == "block"){
+      remainingAction = "block"
+    }
   	io.to('game_room').emit("card", card)
   })
   socket.on("turn_over", (data) => {
@@ -74,6 +77,18 @@ io.on("connection", (socket) => {
   		console.log("Still more players to go. Incrementing index.")
   		index = index + 1
   	}
+
+    if(remainingAction == "block"){
+        remainingAction = false
+        console.log("Player blocked, skipping.")  
+        if(index == (players.length-1)){
+          console.log("Reached the end of the player list. Resetting index to zero to skip.")
+          index = 0
+        }else{
+          console.log("Still more players to go. Incrementing index for skipping.")
+          index = index + 1
+        }
+    }
 
   	let next_player = playersHr[index]
   	currentlyPlaying = next_player
