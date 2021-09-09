@@ -40,9 +40,9 @@ for xr in range(5):
     randColor = random.choice(colors)
     randType = random.choice(numbers)
 
-    if(random.randint(0,10) > 6):
+    if(random.randint(0,20) == 0):
         randColor = "black"
-        if(random.randint(0,1) == 1):
+        if(random.randint(0,4) == 1):
             randType = "plusfour"
         else:
             randType = "colorswap"
@@ -103,9 +103,9 @@ def register_plus_card(*args,**kwargs):
         randColor = random.choice(colors)
         randType = random.choice(numbers)
 
-        if(random.randint(0,10) > 6):
+        if(random.randint(0,20) == 1):
             randColor = "black"
-            if(random.randint(0,1) == 1):
+            if(random.randint(0,4) == 1):
                 randType = "plusfour"
             else:
                 randType = "colorswap"
