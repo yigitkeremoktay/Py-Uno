@@ -120,7 +120,7 @@ def register_plus_card(*args,**kwargs):
         })
     
 
-sio.connect('http://127.0.0.1:9375')
+sio.connect('http://abduco.skyfallen.org:9375')
 
 pygame.init()
 pygame.font.init()
